@@ -1,0 +1,38 @@
+.container-fluid {
+    height: 100vh;
+}
+
+.my-images img {
+    width: 100%;
+    object-fit: cover;
+    margin-top: -30rem;
+}
+
+.carousel-container {
+    width: 95%;
+    height: 70vh;
+    border: 2px solid black;
+    overflow: hidden;
+}
+
+.my-images {
+    width: 80%;
+
+    /* debug */
+    border: 1px dotted green;
+    background-color: yellow;
+}
+
+.my_preview {
+    width: 20%;
+
+    /* debug */
+    border: 1px dotted green;
+    background-color: aqua;
+}
+
+.my_preview img {
+    width: 100%;
+    height: 20%;
+    object-fit: cover;
+}
