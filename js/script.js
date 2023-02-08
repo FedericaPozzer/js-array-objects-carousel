@@ -42,6 +42,72 @@ const images = [
 console.log(images);
 
 
-// Milestone 0: come nel primo carosello realizzato, focalizziamoci prima sulla creazione del markup statico: costruiamo il container e inseriamo l'immagine grande in modo da poter stilare lo slider.
-let carousel_container = document.getElementById("carousel-container");
 
+let my_images = document.getElementById("my-images");
+let my_thumbnails = document.querySelector(".preview-img");
+
+let image_active = 0;
+
+images.forEach((image, index) => {
+
+    my_images.innerHTML += `
+     <div class="banner position-relative ${(index == image_active) ? "active" : " "}">
+        <img src="./${image.image}" alt="img">
+                    
+        <div class="position-absolute text-light text-end bottom-0 end-0 m-5">
+            <h2 id="title">${image.title}</h2>
+            <p class="h4" id="text">${image.text}</p>
+        </div>
+    </div>`;
+
+    my_thumbnails.innerHTML += `
+    <img src="./${image.image}" alt="img">
+    
+    `
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+// for (let card of images) {
+//     // console.log(card.image);
+// }
+
+
+
+
+// let title_el = document.getElementById("title");
+
+// for (let card of images) {
+//     // console.log(card.title);
+// }
+
+// images.forEach((card) => {
+//     console.log(card.title); 
+
+//     title_el.innerHTML += `${card.title}`; //nope
+// });
+
+
+    
+
+
+
+// // let text_el = document.getElementById("text");
+// for (let card of images) {
+//     // console.log(card.text);
+// }
+
+
+
+// // let img_el = document

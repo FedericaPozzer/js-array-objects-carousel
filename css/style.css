@@ -17,22 +17,48 @@
 
 .my-images {
     width: 80%;
+}
 
-    /* debug */
-    border: 1px dotted green;
-    background-color: yellow;
+.my-images .banner {
+    display: none;
+}
+
+/* NOPE il display none non è su ciò a cui sto dando active*/
+.my-images .banner.active {
+    display: block;
 }
 
 .my_preview {
     width: 20%;
-
-    /* debug */
-    border: 1px dotted green;
-    background-color: aqua;
 }
 
-.my_preview img {
+.preview-img img {
     width: 100%;
-    height: 20%;
+    height: 14vh;
     object-fit: cover;
 }
+
+
+.fa-solid {
+    font-size: 2rem;
+    z-index: 2;
+    left: 130px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 1rem;
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.fa-chevron-up {
+    bottom: 530px;
+}
+
+.fa-chevron-down {
+    bottom: 30px;
+}
+
+/* .thumb-active {
+    border: 4px solid rgb(152, 144, 144);
+    display: block;
+}  */
