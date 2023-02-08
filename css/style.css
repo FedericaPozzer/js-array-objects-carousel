@@ -4,8 +4,8 @@
 
 .my-images img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    margin-top: -30rem;
 }
 
 .carousel-container {
@@ -23,7 +23,6 @@
     display: none;
 }
 
-/* NOPE il display none non è su ciò a cui sto dando active*/
 .my-images .banner.active {
     display: block;
 }
@@ -37,6 +36,8 @@
     height: 14vh;
     object-fit: cover;
 }
+
+
 
 
 .fa-solid {

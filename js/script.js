@@ -10,6 +10,7 @@
 // Milestone 0: come nel primo carosello realizzato, focalizziamoci prima sulla creazione del markup statico: costruiamo il container e inseriamo l'immagine grande in modo da poter stilare lo slider.
 // Milestone 1: ora rimuoviamo i contenuti statici e usiamo l'array di oggetti letterali per popolare dinamicamente il carosello. Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
 // Milestone 2: aggiungere il ** ciclo infinito ** del carosello.Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.
+
 // BONUS 1: aggiungere le thumbnails(sottoforma di miniatura) ed al click attivare l'immagine corrispondente.
 // BONUS 2: aggiungere funzionalità di autoplay: dopo un certo periodo di tempo(3 secondi) l'immagine attiva dovrà cambiare alla successiva.
 // BONUS 3: aggiungere bottoni di start / stop e di inversione del meccanismo di autoplay.
@@ -61,53 +62,56 @@ images.forEach((image, index) => {
     </div>`;
 
     my_thumbnails.innerHTML += `
-    <img src="./${image.image}" alt="img">
+    <img src="./${image.image}" alt="img" class="thumbnail" data-index="${index}">
     
     `
 
 })
 
 
+// cambio immagine banner al click della corrispondente immagine thumbnail
+const change_image = (attiva) => {
+    let active = document.querySelector(".active");
+    let all = document.querySelectorAll(".banner");
+
+    active.classList.remove("active");
+    all[attiva].classList.add("active");
+}
 
 
+let thumbnail = document.querySelectorAll(".thumbnail");
+thumbnail.forEach((thumbnail, index) => {
+    thumbnail.addEventListener("click", function () {
+        let thumbnail_selected = this.getAttribute("data-index");
+        change_image(thumbnail_selected);
+    })
+})
+
+    // forward
+const click_fw = () => {
+    image_active++;
+
+    if (image_active >= images.length) {
+        image_active = 0;
+    }
+
+    change_image(image_active);
+}
+
+    let next_img = document.querySelector(".fa-chevron-down");
+    next_img.addEventListener("click", click_fw);
 
 
+    // backward
+const click_bw = () => {
+    image_active--;
 
+    if (image_active < 0) {
+        image_active = images.length -1;
+    }
 
+    change_image(image_active);
+}
 
-
-
-
-
-// for (let card of images) {
-//     // console.log(card.image);
-// }
-
-
-
-
-// let title_el = document.getElementById("title");
-
-// for (let card of images) {
-//     // console.log(card.title);
-// }
-
-// images.forEach((card) => {
-//     console.log(card.title); 
-
-//     title_el.innerHTML += `${card.title}`; //nope
-// });
-
-
-    
-
-
-
-// // let text_el = document.getElementById("text");
-// for (let card of images) {
-//     // console.log(card.text);
-// }
-
-
-
-// // let img_el = document
+    let prev_img = document.querySelector(".fa-chevron-up");
+    prev_img.addEventListener("click", click_bw);
